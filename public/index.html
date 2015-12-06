@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Sure Voting – Vote Security Made Easy</title>
+		<meta name=”description” content=”” />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<div class="wrap">
+		<h1>Sure Voting</h1>
+
+		<div id="js-parallax-window" class="parallax-window">
+		  <div class="parallax-static-content">
+		    <div class="hero-inner">
+						<div class="hero-copy">
+							<h1>Title</h1>
+							<p>Content</p>	
+							<p><a class="donate">Call to action</a></p>
+						</div>
+					</div>
+			  </div>
+		  <div id="js-parallax-background" class="parallax-background"></div>
+		</div>
+  	<footer>
+	  		<div class="wrap padding">
+	  		<section class="logo">
+	 			<img src="images/emblem.png">
+	  		</section> 
+	  		<section class="information">
+		  		<h2>Contact Information</h2>
+		  		<p>info@surevoting.com</p>
+	  		</section>
+	  		<section class="links">
+		  		<h2>Links</h2>
+		  		<p>
+		  			<a href="">Privacy Policy</a>
+		  			<a href="">Terms of Service</a>
+		  		</p>
+	  		</section>
+  		</div>
+  	</footer>
+  	</div>
+	</body>
+	<!--<script type="text/javascript" src="js/jquery.animateNumber.min.js"></script>-->
+	<script> 
+	$(document).ready(function() {
+ 		if ($("#js-parallax-window").length) {
+		    parallax();
+		  }
+		});
+
+		$(window).scroll(function(e) {
+		  if ($("#js-parallax-window").length) {
+		    parallax();
+		  }
+		});
+
+		function parallax(){
+		  if( $("#js-parallax-window").length > 0 ) {
+		    var plxBackground = $("#js-parallax-background");
+		    var plxWindow = $("#js-parallax-window");
+
+		    var plxWindowTopToPageTop = $(plxWindow).offset().top;
+		    var windowTopToPageTop = $(window).scrollTop();
+		    var plxWindowTopToWindowTop = plxWindowTopToPageTop - windowTopToPageTop;
+
+		    var plxBackgroundTopToPageTop = $(plxBackground).offset().top;
+		    var windowInnerHeight = window.innerHeight;
+		    var plxBackgroundTopToWindowTop = plxBackgroundTopToPageTop - windowTopToPageTop;
+		    var plxBackgroundTopToWindowBottom = windowInnerHeight - plxBackgroundTopToWindowTop;
+		    var plxSpeed = 0.35;
+
+		    plxBackground.css('top', - (plxWindowTopToWindowTop * plxSpeed) + 'px');
+		  }
+		}
+
+		function isElementInViewport(elem) {
+    var $elem = $(elem);
+
+    // Get the scroll position of the page.
+    var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
+    var viewportTop = $(scrollElem).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+
+    // Get the position of the element on the page.
+    var elemTop = Math.round( $elem.offset().top );
+    var elemBottom = elemTop + $elem.height();
+
+    return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
+		};
+
+		// Check if it's time to start the animation.
+		/*
+		function checkAnimation() {
+		    var $elem = $('#count1');
+		    if ($elem.hasClass('started')) return;
+				if (isElementInViewport($elem)) {
+					$('#count1').animateNumber({ number: 83 }, 1500);
+					$('#count2').animateNumber({ number: 3138 }, 1500);
+					$('#count3').animateNumber({ number: 8832 }, 1500);
+					$('#count4').animateNumber({ number: 4622 }, 1500);
+					$('#count1').addClass('started');
+		    }
+		};
+
+		// Capture scroll events
+		$(window).scroll(function(){
+		    checkAnimation();
+		});
+		**/
+
+	</script>
+</html>

@@ -1,0 +1,467 @@
+@import "bourbon", "neat";
+@import "reset";
+@import "mixins";
+
+
+$phonewidth: 950px;
+$tabletwidth: 1100px;
+$white:#fff;
+$black:rgb(51,51,50);
+$blacka:rgba(51,51,50,.2);
+$blue:#0a5588;
+$yellow:rgb(255,213,90);
+$lightblue:#ccedff;
+
+  $action-color: $blue;
+  $base-background-color: white !default;
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 0 !default;  
+  $dark-gray: #333 !default;
+  $base-font-color: $blue !default;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.2em !default; 
+  $card-border-color: $base-border-color;
+  $card-background: lighten($card-border-color, 10%);
+  $card-border: 1px solid $card-border-color;
+  $card-header-background: $card-background;
+  $card-image-hover-color: #F8F2B4;
+  $card-image-hover-opacity: 0.7;
+  $card-margin: 1em;
+  $gradient-angle: 10deg;
+  $hero-background-bottom: #20392B;
+  $hero-background-top: #7F99BE; 
+  $hero-color: white;
+  $large-screen: em(860) !default;
+  $light-gray: #DDD !default;
+  $medium-screen: em(640) !default;
+  
+  $font: 'Oxygen', sans-serif;
+
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+html, body {
+      @include clearfix;
+      font-family: $font;
+      text-align: left;
+    height: 100%; 
+    background: $lightblue;
+}
+/*general wrapper*/
+.wrap {
+    height: auto; 
+    margin: 0 auto;
+    @include outer-container(1080px);
+    width: 80%;
+    @include media(max-width 1080px) {
+        width: 92%;
+    }
+}
+
+/*menus*/
+
+
+/*sticky top*/
+.top {
+    top: 0; 
+    @include row();
+    height: 110px;
+    position: fixed; 
+    @include fill-parent();
+    background: $white;
+    border-bottom: 5px $blue solid;
+    box-shadow: $blacka 0 2px 5px;
+    z-index: 9999;
+    color:$blue;
+
+}
+.logo {
+    @include span-columns(4);
+    height: 110px;
+    background: none;
+    img {
+      max-height: 105px;
+    }
+}
+.right {
+    @include span-columns(8);
+    @include omega();
+    .social {
+    @include fill-parent();
+    @include omega();
+    height: 50px;
+        ul {
+        list-style-type: none;
+        width: auto;
+        float: right; 
+        li {
+            height: 50px;
+            display: inline-block; 
+            a {
+            display: inline-block;
+            height: 50px;
+            font-size: 20px;
+            padding: 15px 15px;
+            }
+            a:hover {
+                @include transition(.2s);
+                color: $lightblue;
+                border: none; 
+            }
+            
+        }
+        }   
+    }
+    nav {
+    @include row();
+    @include fill-parent();
+    height: 60px;
+    ul {
+      @include media (max-width $phonewidth) {
+        width: 100%;
+        background: $black;
+        position: absolute;
+        z-index: 9999;
+        display: none;
+      }
+        list-style-type: none;
+        width: auto;
+        float: right; 
+        li {
+            @include media(max-width $phonewidth) {
+              display: block;
+              border-bottom: 1px solid $lightblue;
+             @include fill-parent();
+            }
+            height: 55px;
+            display: inline-block;
+            a {
+                color: $blue; 
+                @include media(max-width $phonewidth) {
+                  display: block;
+                  @include fill-parent();
+                  color: white !important;
+                }
+                height: 55px;
+                padding: 20px 20px 5px 20px;
+                display: block;
+                vertical-align: baseline;
+            }
+        }
+        li:hover {
+            background: $blue;
+            @include transition(0.3s);
+            a {
+                color: $white;
+                border-bottom: none;
+            }
+        }
+        li.donate {
+            a {
+              color: $white; 
+            }
+            @include box-shadow(0, -2px, 4px, rgba(0,0,0,.05)); 
+            @include transition(0.6s); 
+            background: $blue;
+        }
+        li.donate:hover {
+            @include transition(0.3s);
+            background: $lightblue;
+            a{color: $blue;@include transition();}
+        }
+    }
+}
+}
+
+
+/*header*/
+
+header, .parallax-window {
+  margin-bottom: 30px; 
+}
+$parallax-window-height: 70%;
+$parallax-background-height: $parallax-window-height * 2;
+
+.parallax-window {
+  min-height: $parallax-window-height;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  margin-top: 30px; 
+  width: 100%;
+  background: rgba($blue,.3);
+    a {
+    color: $white; 
+    padding: 10px;
+    margin-right: 5px;
+    display: inline-block;
+  }
+  a.donate {
+    @include span-columns(2);
+    height: auto;
+    width: auto;
+    @include transition(0.6s); 
+    text-align: center;
+    background: $blue;
+    @include media(max-width $phonewidth) {
+      @include shift(5);
+      @include span-columns(6);
+    }
+    @include shift(7);
+  }
+  a:hover {
+    @include transition(0.2s);
+    color: $blue; 
+    cursor: pointer;
+    border: none;
+    background: $lightblue; 
+  }
+}
+
+.parallax-static-content {
+  color: $white;
+  padding: 8em 0;
+  position: relative;
+  z-index: 9;
+}
+
+.parallax-background {
+  background: url("../images/crowd.jpg") repeat;
+  background-position: top;
+  background-size: cover;
+  background-color: beige;
+  height: $parallax-background-height;
+  left: 0;
+  position: absolute;
+  top: - $parallax-window-height / 3;
+  width: 100%;
+}
+
+/*footer*/
+footer {
+  h1,h2,h3 {
+    color: $white;
+  }
+  padding-top: 20px; 
+  background: darken($blue, 10%);
+  min-height: 90px;
+  @include fill-parent();
+  @include outer-container(100%);
+  .links a {
+    display: block;
+    color: $white;
+    border: none;
+  }
+  .links a:hover {
+    color: $lightblue;
+  }
+  .logo {
+    @include media(max-width $phonewidth) {
+      @include fill-parent();
+      display: block;
+      text-align: center; 
+      margin-bottom: 15px;
+    }
+    text-align: center;
+  }
+  .information, .links{ 
+    @include media(max-width $phonewidth) {
+      @include span-columns(6); 
+    }
+    @include span-columns(4);
+    text-align: left;
+    color: $white;
+    p {
+      font-size: .87rem; 
+      color: $white; 
+    }
+  }
+}
+/*TYPE*/
+
+  p.inline {
+    font-size: 1.2em; 
+    @include media(max-width $phonewidth) {
+      display: block;
+      margin: 0 auto 20px auto;
+      width: 100%;
+      text-align: center;
+    }
+    display: inline; 
+  }
+  h1, h2, h3, p {
+    margin: 0;
+    color: $blue;
+  }
+
+  hr {
+    border-bottom: 1px solid $light-gray;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin: $base-spacing 0;
+  }
+
+  p {
+    color: $base-font-color;
+    line-height: $base-line-height;
+  }
+
+
+  .type {
+    border-bottom: 1px solid;
+    display: inline-block;
+    font-family: $font;
+    font-size: 0.7em;
+    font-weight: 800;
+    margin-bottom: 2em;
+    padding: 0.3em 0;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  .center { 
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+    }
+  h1 {
+    font-family: $font;
+    font-size: 2.3em;
+    margin-bottom: 0.1em;
+    font-weight: 700;
+    @include media($medium-screen) {
+      font-size: 2.8em;
+    }
+  }
+
+  h2 {
+    font-family: $font;
+    font-size: 1.8em;
+    font-weight: 300;
+    line-height: 1.4em;
+
+    @include media($medium-screen) {
+      font-size: 2em;
+    }
+  }
+
+
+  h3 {
+    font-family: $font;
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1.3em;
+    margin-bottom: 0.4em;
+  }
+
+  p.date {
+    color: transparentize($base-font-color, 0.8);
+    font-family: $font;
+    font-size: 0.9em;
+    margin-bottom: 0.3em;
+  }
+
+  p {
+        font-family: $font;
+        font-size: 1.05em;
+        font-weight: 300;
+        line-height: 1.4em;
+        margin-bottom: 1.5em;
+
+        span {
+          font-family: $font;
+          font-size: 0.8em;
+          text-transform: uppercase;
+        }
+
+        hr {
+          width: 3em;
+        }
+    }
+
+  a.read-more {
+    display: inline-block;
+    font-family: $font;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-left: 0.2em;
+    position: relative;
+    text-transform: uppercase;
+
+    span {
+      font-size: 1.5em;
+      position: absolute;
+      right: -12px;
+      top: -1px;
+    }
+  }
+
+
+  p.author {
+    font-family: $font;
+  }
+
+/*links*/
+nav {
+    a {
+        color: $white;
+    }
+}
+a {
+    color: $action-color;
+    text-decoration: none;
+    border-bottom: 0px solid $lightblue;
+  }
+a:hover {
+    @include transition(.1s all);
+    color: $lightblue;
+    border-bottom: 1px solid $lightblue;
+}
+
+/*inputs*/
+
+  button {
+    color: $white; 
+    padding: 10px;
+    margin-right: 5px;
+    display: inline-block;
+    min-height: 44px;
+    height: auto;
+    width: auto;
+    min-width: 100px;
+    border: none;
+    font-size: 18px;
+    @include transition(0.6s); 
+    background: $blue;
+  }
+  button:hover {
+    @include transition(0.2s);
+    color: $blue; 
+    cursor: pointer;
+    border: none;
+    background: $lightblue; 
+
+  }
+  input[type=text] {
+    @include media(max-width $phonewidth) {
+      display: block;
+      width: 100%;
+      margin-top: 2px;
+    }
+    color: $blue; 
+    min-height: 44px; 
+    @include box-sizing(border-box);
+    @include transition(border-color);
+    position: relative;
+    background-color: white;
+    border: 1px solid $blue;
+    display: inline-block;
+    font-size: 1em;
+    font-style: italic;
+    margin: 0 auto;
+    padding: ($base-spacing / 3) ($base-spacing / 3);
+    }
