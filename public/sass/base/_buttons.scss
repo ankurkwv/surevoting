@@ -34,7 +34,7 @@
     }
   }
 }
-a.full::after {
+a.full::after, a.arrow::after {
 content: '\0020\203A';
 vertical-align: baseline; 
 }

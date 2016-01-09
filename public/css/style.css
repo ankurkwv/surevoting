@@ -70,7 +70,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .full, 
     button:disabled:hover, input[type="button"]:disabled:hover, input[type="reset"]:disabled:hover, input[type="submit"]:disabled:hover, .full:disabled:hover, .hollow:disabled:hover {
       background-color: #12B976; }
 
-a.full::after {
+a.full::after, a.arrow::after {
   content: '\0020\203A';
   vertical-align: baseline; }
 
@@ -367,6 +367,7 @@ header {
     content: "";
     display: table; }
   header .left {
+    text-shadow: -1px -1px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     float: left;
     display: block;
@@ -395,12 +396,71 @@ header {
     header .right:last-child {
       margin-right: 0; }
     header .right img {
+      /* iPad Image */
+      -webkit-transition: all 0.2s ease-in-out 0s;
+      transition: all 0.2s ease-in-out 0s;
       z-index: 3;
       max-width: 100%;
       position: absolute;
       top: 50px;
-      right: 0; }
+      right: 0;
+      /* ipad hover */
+      -webkit-animation: scale 1s ease-in;
+      animation: scale 1s ease-in; }
 
+@-webkit-keyframes scale {
+  0%, 100% {
+    -webkit-transform: scale(1);
+    -khtml-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.01);
+    -khtml-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01); } }
+@keyframes scale {
+  0%, 100% {
+    -webkit-transform: scale(1);
+    -khtml-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    -webkit-transform: scale(1.01);
+    -khtml-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01); } }
+/**
+ *
+ * Demo Button with slide
+ *
+ */
+#demobutton {
+  -webkit-animation: slide 1s ease-out;
+  animation: slide 1s ease-out; }
+
+@-webkit-keyframes slide {
+  0% {
+    -webkit-transform: translateY(1000px);
+    -khtml-transform: translateY(1000px);
+    -ms-transform: translateY(1000px);
+    transform: translateY(1000px); }
+  100% {
+    -webkit-transform: translateY(0);
+    -khtml-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0); } }
+@keyframes slide {
+  0% {
+    -webkit-transform: translateY(1000px);
+    -khtml-transform: translateY(1000px);
+    -ms-transform: translateY(1000px);
+    transform: translateY(1000px); }
+  100% {
+    -webkit-transform: translateY(0);
+    -khtml-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0); } }
 /*=====  End of Header  ======*/
 /*=======================================
 =            Callout General            =
@@ -412,7 +472,8 @@ header {
   position: relative;
   z-index: 2;
   padding: 5.5em 0;
-  background: #F6FBFF; }
+  background: #F6FBFF;
+  overflow: auto; }
   .breakout .small {
     width: 50%;
     margin: 0 0; }
@@ -422,18 +483,23 @@ header {
   color: white; }
 
 /*=====  End of Callout General  ======*/
-/*==================================
-=            Callout #1            =
-==================================*/
-/*=====  End of Callout #1  ======*/
-/*=================================
-=            Callout#2            =
-=================================*/
-/*=====  End of Callout#2  ======*/
 /*=========================================
-=            Benefits Homepage            =
+=            Benefits:            =
 =========================================*/
-/*=====  End of Benefits Homepage  ======*/
+.benefit {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 31.7615656014%;
+  padding: 20px;
+  display: inline-block; }
+  .benefit:last-child {
+    margin-right: 0; }
+
+.fa {
+  padding-right: 3px; }
+
+/*=====  End of Benefits  ======*/
 /*==============================
 =            Footer            =
 ==============================*/

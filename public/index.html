@@ -31,7 +31,7 @@
 							<p>Quick and easy elections.</p>
 							<p>Live metrics.</p>
 							<p>Open-source security.</p>
-							<a href="" class="full">Demo</a>
+							<a href="" id="demobutton" class="full">Demo</a>
 							<a href="" class="hollow">Learn More</a>
 						</div>
 						<div class="right">
@@ -60,92 +60,26 @@
 				<div class="breakout">
 					<div class="wrap">
 						<div class="benefit">
-							<i class="bicon"></i>
-							<h3>State of the Art Security</h3>
+							
+							<h3> <i class="fa fa-lock"></i> State of the Art Security</h3>
 							<p>Utlizing the block-chain technology, votes are unable to be maniuplated or delted, even by an election administrator.</p>
+							<a class="arrow" href="#">Read more about security</a>
 						</div>
 						<div class="benefit">
-							<i class="bicon"></i>
-							<h3>Easy to Use.</h3>
+							
+							<h3> <i class="fa fa-cog"></i> Easy to Use.</h3>
 							<p>The kiosk solution makes voting easier than ever. Voters will find the custom iPad solution simple and refreshing.</p>
+							<a class="arrow" href="#">Read more about the admin panel</a>
 						</div>
 						<div class="benefit">
-							<i class="bicon"></i>
-							<h3>Quick Setup</h3>
+							
+							<h3> <i class="fa fa-toggle-on"></i> Quick Setup</h3>
 							<p>No more waiting 7 to 10 days for your vendor to "update" the code. You have full control over what is on your ballot, and changes are instantaneous. </p>
+							<a class="arrow" href="#">Read more about our 1 click setup</a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<footer></footer>
 	</body>
-	<!--<script type="text/javascript" src="js/jquery.animateNumber.min.js"></script>-->
-	<script> 
-	$(document).ready(function() {
- 		if ($("#js-parallax-window").length) {
-		    parallax();
-		  }
-		});
-
-		$(window).scroll(function(e) {
-		  if ($("#js-parallax-window").length) {
-		    parallax();
-		  }
-		});
-
-		function parallax(){
-		  if( $("#js-parallax-window").length > 0 ) {
-		    var plxBackground = $("#js-parallax-background");
-		    var plxWindow = $("#js-parallax-window");
-
-		    var plxWindowTopToPageTop = $(plxWindow).offset().top;
-		    var windowTopToPageTop = $(window).scrollTop();
-		    var plxWindowTopToWindowTop = plxWindowTopToPageTop - windowTopToPageTop;
-
-		    var plxBackgroundTopToPageTop = $(plxBackground).offset().top;
-		    var windowInnerHeight = window.innerHeight;
-		    var plxBackgroundTopToWindowTop = plxBackgroundTopToPageTop - windowTopToPageTop;
-		    var plxBackgroundTopToWindowBottom = windowInnerHeight - plxBackgroundTopToWindowTop;
-		    var plxSpeed = 0.35;
-
-		    plxBackground.css('top', - (plxWindowTopToWindowTop * plxSpeed) + 'px');
-		  }
-		}
-
-		function isElementInViewport(elem) {
-    var $elem = $(elem);
-
-    // Get the scroll position of the page.
-    var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
-    var viewportTop = $(scrollElem).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-
-    // Get the position of the element on the page.
-    var elemTop = Math.round( $elem.offset().top );
-    var elemBottom = elemTop + $elem.height();
-
-    return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
-		};
-
-		// Check if it's time to start the animation.
-		/*
-		function checkAnimation() {
-		    var $elem = $('#count1');
-		    if ($elem.hasClass('started')) return;
-				if (isElementInViewport($elem)) {
-					$('#count1').animateNumber({ number: 83 }, 1500);
-					$('#count2').animateNumber({ number: 3138 }, 1500);
-					$('#count3').animateNumber({ number: 8832 }, 1500);
-					$('#count4').animateNumber({ number: 4622 }, 1500);
-					$('#count1').addClass('started');
-		    }
-		};
-
-		// Capture scroll events
-		$(window).scroll(function(){
-		    checkAnimation();
-		});
-		**/
-
-	</script>
 </html>

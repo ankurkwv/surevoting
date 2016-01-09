@@ -93,6 +93,7 @@ header {
   background: transparent;
   height: 400px;
   .left {
+    @include text-shadow(-1px, -1px, 4px, rgba(0,0,0,.1));
     position: relative;
     @include span-columns(5);
     @include shift(1);
@@ -114,16 +115,45 @@ header {
     position: relative;
     @include span-columns(6);
     @include omega();
-    img {
+    img { /* iPad Image */
+      @include transition();
       z-index: 3;
       max-width: 100%;
       position: absolute;
       top:50px;
       right: 0;
+      /* ipad hover */
+      @include animation(scale 1.00s ease-in);
     }
   }
 }
 
+@include keyframes(scale) {
+  0%, 100% {
+    @include transform(scale(1));
+  }
+  50% {
+    @include transform(scale(1.01));
+  }
+}
+
+/**
+ *
+ * Demo Button with slide
+ *
+ */
+#demobutton {
+  @include animation(slide 1.0s ease-out);
+}
+
+@include keyframes(slide) {
+  0% {
+    @include transform(translateY(1000px));
+  }
+  100% {
+    @include transform(translateY(0));
+  }
+}
 /*=====  End of Header  ======*/
 
 /*=======================================
@@ -136,6 +166,7 @@ header {
   z-index: 2;
   padding: 5.5em 0; 
   background: $ultralightblue;
+  overflow: auto;
   .small {
     width: 50%;
     margin: 0 0;
@@ -148,29 +179,20 @@ header {
 
 /*=====  End of Callout General  ======*/
 
-/*==================================
-=            Callout #1            =
-==================================*/
-
-
-
-/*=====  End of Callout #1  ======*/
-
-/*=================================
-=            Callout#2            =
-=================================*/
-
-
-
-/*=====  End of Callout#2  ======*/
-
 /*=========================================
-=            Benefits Homepage            =
+=            Benefits:            =
 =========================================*/
 
+.benefit {
+  @include span-columns(4);
+  padding: 20px;
+  display: inline-block;
+}
 
-
-/*=====  End of Benefits Homepage  ======*/
+.fa {
+  padding-right: 3px;
+}
+/*=====  End of Benefits  ======*/
 
 /*==============================
 =            Footer            =
