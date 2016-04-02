@@ -294,6 +294,18 @@ html, body {
 /*==================================
 =            Top banner            =
 ==================================*/
+header.placeholder {
+  height: 300px;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%); }
+  header.placeholder .center img {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    width: 150px; }
+
 .top {
   background: white;
   width: 85%;
@@ -412,23 +424,19 @@ header {
   0%, 100% {
     -webkit-transform: scale(1);
     -khtml-transform: scale(1);
-    -ms-transform: scale(1);
     transform: scale(1); }
   50% {
     -webkit-transform: scale(1.01);
     -khtml-transform: scale(1.01);
-    -ms-transform: scale(1.01);
     transform: scale(1.01); } }
 @keyframes scale {
   0%, 100% {
     -webkit-transform: scale(1);
     -khtml-transform: scale(1);
-    -ms-transform: scale(1);
     transform: scale(1); }
   50% {
     -webkit-transform: scale(1.01);
     -khtml-transform: scale(1.01);
-    -ms-transform: scale(1.01);
     transform: scale(1.01); } }
 /**
  *
@@ -443,23 +451,19 @@ header {
   0% {
     -webkit-transform: translateY(1000px);
     -khtml-transform: translateY(1000px);
-    -ms-transform: translateY(1000px);
     transform: translateY(1000px); }
   100% {
     -webkit-transform: translateY(0);
     -khtml-transform: translateY(0);
-    -ms-transform: translateY(0);
     transform: translateY(0); } }
 @keyframes slide {
   0% {
     -webkit-transform: translateY(1000px);
     -khtml-transform: translateY(1000px);
-    -ms-transform: translateY(1000px);
     transform: translateY(1000px); }
   100% {
     -webkit-transform: translateY(0);
     -khtml-transform: translateY(0);
-    -ms-transform: translateY(0);
     transform: translateY(0); } }
 /*=====  End of Header  ======*/
 /*=======================================
